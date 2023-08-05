@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Container,
   Card,
@@ -15,8 +15,8 @@ import { REMOVE_BOOK } from '../utils/mutations';
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me || {};
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+  const userData = data?.me || {};
 
   const handleDeleteBook = async (bookId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -27,7 +27,7 @@ const SavedBooks = () => {
 
     try {
       const { data } = await removeBook({
-        variable: { bookId }
+        variable: { bookId },
       });
       removeBookId(bookId);
     } catch (err) {
