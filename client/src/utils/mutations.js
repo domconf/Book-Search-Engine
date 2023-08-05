@@ -49,7 +49,7 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_BOOK = gql`
-  mutation saveBook($newBook: InputBook!) {
+  mutation saveBook($newBook: InputBook!)
     saveBook(newBook: $newBook) {
       _id
       username
@@ -63,7 +63,6 @@ export const SAVE_BOOK = gql`
         link
       }
     }
-  }
 `;
 
 export const REMOVE_BOOK = gql`
